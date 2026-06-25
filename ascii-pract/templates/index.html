@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Generator</title>
+    <style>
+        /* Reset default browser spacing */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Dark terminal background, green text, monospace font */
+        body {
+            background-color: #0d0d0d;
+            color: #00ff41;
+            font-family: monospace;
+            padding: 2rem;
+        }
+
+        /* Centre everything and limit width */
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Header with a green bottom border */
+        .header {
+            border-bottom: 1px solid #00ff41;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Main title */
+        .header h1 {
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        /* Subtitle under the title */
+        .header p {
+            font-size: 12px;
+            color: #00aa30;
+            margin-top: 4px;
+        }
+
+        /* Small label above inputs */
+        .label {
+            font-size: 12px;
+            color: #00aa30;
+            margin-bottom: 8px;
+        }
+
+        /* Text input styled like a terminal */
+        input[type="text"] {
+            width: 100%;;
+            background-color: #0d0d0d;
+            border: 1px solid #00ff41;
+            color: #00ff41;
+            font-family: monospace;
+            font-size: 14px;
+            padding: 10px 14px;
+            outline: none;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Placeholder text - darker green */
+        input[type="text"]::placeholder {
+            color: #005515;
+        }
+
+        /* Radio button options side by side */
+        .banner-options {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Each radio option */
+        .banner-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        /* Radio button color */
+        .banner-option input[type="radio"] {
+            accent-color: #00ff41;
+        }
+
+        /* Generate button - green background, dark text */
+        button {
+            background-color: #00ff41;
+            color: #0d0d0d;
+            border: none;
+            font-family: monospace;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 10px 24px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Button gets slightly darker when hovered */
+        button:hover {
+            background-color: #00cc33;
+        }
+
+        /* Output area - darker background to separate it */
+        pre {
+            background-color: #050505;
+            border: 1px solid #003310;
+            padding: 1rem;
+            margin-top: 2rem;
+            font-size: 12px;
+            line-height: 1.4;
+            color: #00ff41;
+            overflow-x: auto;
+            min-height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Header -->
+         <div class="header">
+            <h1>ASCII_ART_WEB</h1>
+            <p>// render text as ASCII art in your browser</p>
+         </div>
+
+         <!-- Form -->
+          <form action="/ascii-pract" method="POST">
+
+            <p class="label">// enter your text</p>
+            <input type="text" name="text" placeholder="type something...">
+
+
+            <p class="label">// select banner</p>
+            <div class="banner-options">
+                <label class="banner-option">
+                    <input type="radio" name="banner" value="standard" checked> standard
+                </label>
+                <label class="banner-option">
+                    <input type="radio" name="banner" value="shadow" checked> shadow
+                </label>
+                <label class="banner-option">
+                    <input type="radio" name="banner" value="thinkertoy"> thinkertoy
+                </label>
+            </div>
+
+            <button type="submit">Generate</button>
+
+          </form>
+
+          <!-- Result -->
+           <pre>{{.Result}}</pre>
+
+    </div>
+</body>
+</html>
